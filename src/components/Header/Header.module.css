@@ -1,0 +1,160 @@
+
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  padding: 30px 0;
+  color: #fff;
+  background: transparent;
+  transition: background 220ms ease, padding 220ms ease, box-shadow 220ms ease;
+}
+
+.scrolled {
+  padding: 13px 0;
+  background: var(--color-purple);
+  box-shadow: 0 8px 30px rgb(0 0 0 / 14%);
+}
+
+.inner {
+  display: flex;
+  width: min(100% - 48px, 1010px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 0 auto;
+}
+
+.logo {
+  flex-shrink: 0;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-purple-light);
+  transition: color 220ms ease;
+}
+
+.scrolled .logo span {
+  color: var(--color-pink-light);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 27px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menuLink {
+  position: relative;
+  display: inline-block;
+  padding: 7px 0;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.menuLink::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-purple-light);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.menuLink:hover {
+  color: var(--color-pink-light);
+}
+
+.menuLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menuToggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 12px;
+  color: #fff;
+  background: rgb(255 255 255 / 10%);
+  font-size: 1.25rem;
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    padding: 16px 0;
+  }
+
+  .scrolled {
+    padding: 11px 0;
+  }
+
+  .inner {
+    width: min(100% - 32px, var(--content-width));
+  }
+
+  .menuToggle {
+    position: relative;
+    z-index: 1002;
+    display: inline-flex;
+  }
+
+  .menu {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 80px 24px 28px;
+    background: rgb(24 22 22 / 98%);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .menuLink {
+   .menuLink {
+  font-size: 1.45rem;
+}
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .menu,
+  .menuLink,
+  .menuLink::after {
+    transition: none;
+  }
+}

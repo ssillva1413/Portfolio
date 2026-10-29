@@ -1,0 +1,67 @@
+.wrapper {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 75px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  padding-bottom: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.subtitle {
+  position: absolute;
+  top: calc(100% - 12px);
+  left: 50%;
+  z-index: 1;
+  padding: 4px 10px;
+  color: var(--color-purple);
+  background: var(--color-white-purple);
+  font-size: 1rem;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.wrapper::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 180px;
+  height: 3px;
+  background: var(--color-black);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.dark .title {
+  color: var(--color-white);
+}
+
+.dark::after {
+  background: var(--color-white);
+}
+
+.dark .subtitle {
+  color: var(--color-purple-light);
+  background: var(--color-black);
+}
+
+@media (max-width: 520px) {
+  .wrapper {
+    margin-bottom: 65px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}

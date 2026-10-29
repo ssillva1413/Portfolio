@@ -1,0 +1,160 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 45px 0 65px;
+  color: var(--color-white);
+  background: var(--color-black);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1300px);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: -18px 0 18px;
+}
+
+.controls button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 50%;
+  color: var(--color-white);
+  background: var(--color-black-soft);
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.controls button:hover {
+  border-color: var(--color-purple-light);
+  background: var(--color-purple);
+}
+
+.controls button:focus-visible {
+  outline: 2px solid var(--color-purple-light);
+  outline-offset: 3px;
+}
+
+/* Computador: exibe exatamente dois certificados por vez. */
+.track {
+  --card-gap: 20px;
+
+  display: grid;
+  width: 100%;
+  grid-template-columns: none;
+  grid-auto-columns: calc((100% - var(--card-gap)) / 2);
+  grid-auto-flow: column;
+  gap: var(--card-gap);
+  overflow-x: auto;
+  padding: 10px 3px 22px;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--color-purple-light) var(--color-black-soft);
+  scrollbar-width: thin;
+}
+
+.card {
+  display: flex;
+  min-width: 0;
+  min-height: 300px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 35px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  background: var(--color-black-soft);
+  scroll-snap-align: start;
+  transition: border-color 0.5s ease;
+}
+
+.card:hover {
+  border-color: var(--color-purple-light);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 310px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.025);
+}
+
+.hint {
+  margin: 13px 0 0;
+  color: rgb(255 255 255 / 60%);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+/* Tablet: mantém dois certificados enquanto houver 600 px ou mais. */
+@media (max-width: 947px) {
+  .container {
+    padding: 0 50px;
+  }
+
+  .card {
+    padding: 25px;
+  }
+}
+
+/* Celular: exibe um certificado por vez, como no original. */
+@media (max-width: 599px) {
+  .section {
+    padding: 75px 0 60px;
+  }
+
+  .container {
+    padding: 0 23px;
+  }
+
+  .track {
+    grid-auto-columns: 100%;
+    gap: 16px;
+  }
+
+  .controls {
+    margin-top: -12px;
+  }
+
+  .card {
+    min-height: 260px;
+    padding: 25px;
+  }
+
+  .card img {
+    max-height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    scroll-behavior: auto;
+  }
+
+  .controls button,
+  .card,
+  .card img {
+    transition: none;
+  }
+}
