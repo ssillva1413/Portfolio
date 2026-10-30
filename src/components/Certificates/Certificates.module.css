@@ -1,3 +1,4 @@
+
 .section {
   position: relative;
   isolation: isolate;
@@ -15,41 +16,7 @@
   padding: 0 80px;
 }
 
-.controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin: -18px 0 18px;
-}
-
-.controls button {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  place-items: center;
-  border: 1px solid rgb(255 255 255 / 22%);
-  border-radius: 50%;
-  color: var(--color-white);
-  background: var(--color-black-soft);
-  cursor: pointer;
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease,
-    transform 0.3s ease;
-}
-
-.controls button:hover {
-  border-color: var(--color-purple-light);
-  background: var(--color-purple);
-}
-
-.controls button:focus-visible {
-  outline: 2px solid var(--color-purple-light);
-  outline-offset: 3px;
-}
-
-/* Computador: exibe exatamente dois certificados por vez. */
+/* Carrossel: dois certificados por vez no computador. */
 .track {
   --card-gap: 20px;
 
@@ -60,12 +27,28 @@
   grid-auto-flow: column;
   gap: var(--card-gap);
   overflow-x: auto;
-  padding: 10px 3px 22px;
+  overflow-y: hidden;
+  padding: 10px 3px 5px;
   overscroll-behavior-inline: contain;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-color: var(--color-purple-light) var(--color-black-soft);
-  scrollbar-width: thin;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
 }
 
 .card {
@@ -93,6 +76,8 @@
   height: auto;
   max-height: 310px;
   object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
   transition: transform 0.3s ease;
 }
 
@@ -100,14 +85,43 @@
   transform: scale(1.025);
 }
 
-.hint {
-  margin: 13px 0 0;
-  color: rgb(255 255 255 / 60%);
-  font-size: 0.82rem;
-  text-align: center;
+/* Indicadores de navegação. */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 14px;
 }
 
-/* Tablet: mantém dois certificados enquanto houver 600 px ou mais. */
+.dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  padding: 0;
+  border: 2px solid var(--color-purple-light);
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.activeDot {
+  width: 32px;
+  flex-basis: 32px;
+  border-color: var(--color-purple-light);
+  background: var(--color-purple-light);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 4px;
+}
+
 @media (max-width: 947px) {
   .container {
     padding: 0 50px;
@@ -118,7 +132,6 @@
   }
 }
 
-/* Celular: exibe um certificado por vez, como no original. */
 @media (max-width: 599px) {
   .section {
     padding: 75px 0 60px;
@@ -129,12 +142,9 @@
   }
 
   .track {
-    grid-auto-columns: 100%;
-    gap: 16px;
-  }
+    --card-gap: 16px;
 
-  .controls {
-    margin-top: -12px;
+    grid-auto-columns: 100%;
   }
 
   .card {
@@ -152,9 +162,9 @@
     scroll-behavior: auto;
   }
 
-  .controls button,
   .card,
-  .card img {
+  .card img,
+  .dot {
     transition: none;
   }
 }

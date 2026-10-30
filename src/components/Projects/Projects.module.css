@@ -1,3 +1,4 @@
+
 .section {
   padding: 100px 0;
   background: var(--color-white-purple);
@@ -10,11 +11,39 @@
 }
 
 .grid {
-  display: grid;
+  display: flex;
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
   gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .card {
@@ -22,6 +51,7 @@
   grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
   align-items: center;
   gap: 28px;
+  width: 100%;
   overflow: visible;
   border: 0;
   border-radius: 0;
@@ -54,6 +84,8 @@
   border-radius: 0.5rem;
   object-fit: contain;
   transition: transform 0.3s ease;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .card:hover .imageFrame img {
@@ -108,6 +140,45 @@
   background: transparent;
 }
 
+
+/* Indicadores de navegação dos projetos */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  padding: 0;
+  border: 2px solid var(--color-purple-light);
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.activeDot {
+  width: 32px;
+  flex-basis: 32px;
+  border-color: var(--color-purple-light);
+  background: var(--color-purple-light);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 4px;
+}
+
+
 @media (max-width: 947px) {
   .container {
     padding: 0 50px;
@@ -147,4 +218,7 @@
   .imageFrame img {
     transition: none;
   }
+  .dot {
+  transition: none;
+}
 }

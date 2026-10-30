@@ -1,7 +1,7 @@
 .button {
   position: fixed;
   right: 22px;
-  bottom: 22px;
+  bottom: 90px;
   z-index: 900;
   display: grid;
   width: 46px;
@@ -22,5 +22,5 @@
 .visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
 @media (max-width: 520px) {
-  .button { right: 14px; bottom: 14px; width: 42px; height: 42px; }
+  .button { right: 14px; bottom: 60px; width: 42px; height: 42px; }
 }

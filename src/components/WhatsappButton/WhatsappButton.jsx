@@ -7,7 +7,7 @@ const WhatsappButton = () => {
   const mensagem =
     "Olá, gostaria de tirar uma dúvida com assunto: ";
 
-  const whatsappUrl = `https://wa.me/558993849658?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/5588993849658?text=${encodeURIComponent(
     mensagem
   )}`;
 

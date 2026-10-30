@@ -4,19 +4,22 @@ import ParticlesBackground from '../ParticlesBackground/ParticlesBackground.jsx'
 
 const services = [
   {
-    icon: 'fa-solid fa-desktop',
-    title: 'Formatação de sistemas operacionais',
-    description: 'Sou especialista em formatação de sistemas operacionais, Com um forte conhecimento técnico, garanto que cada sistema seja formatado e configurado para atender às necessidades específicas do usuário.',
+    icon: 'fa-solid fa-code',
+    title: 'Desenvolvimento Web e Full Stack',
+    description:
+      'Desenvolvimento de aplicações web com foco em funcionalidade, organização e experiência do usuário. Criação de interfaces responsivas e sistemas personalizados, utilizando tecnologias como HTML5, CSS3, JavaScript, React, Vite, Node e PostgreSQL para transformar necessidades em soluções digitais.',
   },
   {
-    icon: 'fa-solid fa-network-wired',
-    title: 'Gerência de redes de computadores',
-    description: 'texto aqui',
+  icon: 'fa-solid fa-network-wired',
+  title: 'Administração de Infraestrutura e Redes',
+  description:
+    'Administração e manutenção de ambientes de TI, envolvendo Windows Server 2022, configuração e gerenciamento de redes cabeadas e Wi-Fi, MikroTik, firewall e políticas de segurança. Experiência com Zabbix para monitoramento de infraestrutura, DVRs para sistemas de CFTV, PABX IP, switches gerenciáveis e redes PoE.',
   },
   {
-    icon: 'fa-solid fa-database',
-    title: 'Suporte de sistema ERP',
-    description: 'texto aqui',
+    icon: 'fa-solid fa-hospital',
+    title: 'Gestão e Suporte a Sistemas Hospitalares',
+    description:
+      'Administração, suporte e acompanhamento de sistemas de gestão hospitalar, incluindo soluções ERP. Auxiliando os setores na utilização dos sistemas, resolução de problemas e melhoria dos processos tecnológicos da instituição.',
   },
 ];
 

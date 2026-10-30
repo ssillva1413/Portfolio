@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import styles from './Hero.module.css';
 
 const phrases = [
-  'Estudante Sistemas de Informação',
   'Analista de Suporte de TI.',
   'Desenvolvedor  Full Stack',
+  'Estudante',
   'Apaixonado por tecnologia',
 ];
 

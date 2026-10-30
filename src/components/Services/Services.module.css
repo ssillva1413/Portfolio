@@ -65,6 +65,7 @@
   color: var(--color-clean-white, #f1efef);
   font-size: 0.94rem;
   line-height: 1.75;
+  text-align: justify;
 }
 
 @media (max-width: 947px) {
