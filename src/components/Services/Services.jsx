@@ -13,7 +13,7 @@ const services = [
   icon: 'fa-solid fa-network-wired',
   title: 'Administração de Infraestrutura e Redes',
   description:
-    'Administração e manutenção de ambientes de TI, envolvendo Windows Server 2022, configuração e gerenciamento de redes cabeadas e Wi-Fi, MikroTik, firewall e políticas de segurança. Experiência com Zabbix para monitoramento de infraestrutura, DVRs para sistemas de CFTV, PABX IP, switches gerenciáveis e redes PoE.',
+    'Administração e manutenção de ambientes de TI, envolvendo Windows Server 2022, configuração e gerenciamento de redes cabeadas e Wi-Fi corporativo, MikroTik, firewall e políticas de segurança. Experiência com Zabbix para monitoramento de infraestrutura, DVRs para sistemas de CFTV, PABX IP, switches gerenciáveis e redes PoE.',
   },
   {
     icon: 'fa-solid fa-hospital',
